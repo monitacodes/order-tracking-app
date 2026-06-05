@@ -1,0 +1,26 @@
+# 🌱 Bean Sprout Cafe — Live Order Simulator
+> **Tagline:** From farm to your cup.
+
+An interactive, asynchronous single-page web application designed for **Bean Sprout Cafe**. This dashboard allows users to dynamically place multi-item beverage orders and track their delivery pipeline in real-time using a deterministic, event-driven architecture.
+
+---
+
+## ✨ Features
+
+- **Dynamic Menu Harvesting:** Menu items, pricing, and visual profile tags are asynchronously simulated and rendered using standard data workflows.
+- **Asynchronous Workflow Engine:** Uses an isolated `Promise` pipeline and sequential `setTimeout` delays to move separate orders independently through tracking stages.
+- **Independent Live Trackers:** Each order acts as an isolated micro-state containing unique localized timestamps, randomized delivery confirmation IDs, total calculations, and cancellation mechanics.
+- **Graceful Execution Termination:** Supports active pipeline short-circuiting. Clicking "Cancel Preparation" immediately clears all pending background timers and gracefully wipes the target workflow tracking state.
+- **Responsive Warm Palette Design:** Built with a tailored Bootstrap 5 layout featuring an organic, eco-friendly visual style (sage greens, espresso browns, and soft creams).
+
+---
+
+## 🛠️ Architecture & Core Concepts Applied
+
+This project was built to demonstrate proficiency in core asynchronous JavaScript concepts:
+
+* **`async / await` & `Promises`:** Used to decouple data fetching from application initiation, matching real-world API communication behaviors.
+* **Timers (`setTimeout`):** Drives the step-by-step state engine for order processing, moving states cleanly from *Accepted* ➡️ *Preparing* ➡️ *Handed Over* ➡️ *Arriving* ➡️ *Delivered*.
+* **Dynamic DOM Mutators (`append` / `remove`):** Implements lightweight runtime template injections for structural elements without relying on heavy framework lifecycles.
+* **State Mapping (`Map`):** Leverages a key-value data layout strategy to track asynchronous references safely across different timing threads.
+
